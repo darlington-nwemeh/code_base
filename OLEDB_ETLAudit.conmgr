@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="OLEDB_ETLAudit"
+  DTS:DTSID="{9823FB81-5411-49E8-80ED-FBA0FD6100FB}"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="InitialCatalog">@[$Project::pAuditDatabase]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="ServerName">@[$Project::pAuditServer]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=MHEDW-DEV;Initial Catalog=ETLAudit;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Packet Size=32767;Application Name=OLEDB_ETLAudit_SalesForceStagingHistoryLoad;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

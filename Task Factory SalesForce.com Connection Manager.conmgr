@@ -1,0 +1,17 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Task Factory SalesForce com Connection Manager"
+  DTS:DTSID="{382E36D2-F087-464B-B840-E5B035EE0CFE}"
+  DTS:CreationName="SALESFORCE TF">
+  <DTS:PropertyExpression
+    DTS:Name="Password">@[$Project::pSalesForcePwd]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="Username">@[$Project::pSalesforceUserName]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <TaskFactorySalesForceConnectionManager
+      ConnectionString="Username=dataintegration@millenniumhealth.com.staging;ServerURL=https://test.salesforce.com/services/Soap/u/36.0;Timeout=60;UseProxy=False;ProxyHost=;ProxyUserName=;ProxyDomain=;ProxyPort=0;ReuseConnectionAcrossAllTasks=True;">
+      <Password
+        Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAR3Hc5b1dGk6MOkntgmxTUwAAAAACAAAAAAADZgAAwAAAABAAAAAaP+PKsEhjV4i+1nS4U5SnAAAAAASAAACgAAAAEAAAAO/VhQnO3yfL36CxNLpQmRV4AAAAbbixUxZpPK3KsAN52sTWLQqV2r5n/xEWfUV1NZ708Iz+JYUqVd6aXe4Ye9M8eEQTb7RsdsnjGWiGDkhpAUWY6t3R+e7ynQNVTu15N0EfR3DSMWtDa3WUwBmLkZbqeMd7tLQY0g/KQscCSimrR1skCpXn3GEbzoa6FAAAAAt8sXTRtZ9josopX6EEEmRlgCGh</Password>
+    </TaskFactorySalesForceConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
