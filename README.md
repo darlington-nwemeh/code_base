@@ -37,6 +37,7 @@ If any filenames or organization change in the repo later, tell me and I'll upda
 The diagram below uses the exact high-level artifacts found in the repository (SSIS project + packages, PowerShell deployment script, connection managers, SQL UDF). GitHub renders Mermaid diagrams automatically in Markdown.
 
 ```mermaid
+%% Architecture diagram (matches repo files)
 flowchart TB
   subgraph Sources
     SF[Salesforce API / Objects]
@@ -44,14 +45,14 @@ flowchart TB
   end
 
   subgraph Deployment ["Deployment & CI"]
-    PS[PowerShell: SalesForceStagingHistoryLoadDeployment.ps1]
+    PS1[PowerShell Deployment Script]
   end
 
   subgraph ETL ["SSIS Project & Packages"]
     DTProj[SalesForceStagingHistoryLoad.dtproj / .ispac]
     CM1[OLEDB_Source.conmgr]
     CM2[OLEDB_Target.conmgr]
-    CM3[TaskFactorySalesForceConn[Task Factory Salesforce CM]]
+    CM3[Task Factory SalesForce.com Connection Manager.conmgr]
     PkgMaster[StagingHistorySalesForceMasterPackage.dtsx]
     PkgLoad1[LoadTablePreStagingSalesForceContactStagingHistorySalesForceContactInitIncr.dtsx]
     PkgLoad2[LoadTablePreStagingSalesForceLSAAssignmentCStagingHistorySalesForceLSAAssignmentCInitIncr.dtsx]
@@ -73,7 +74,7 @@ flowchart TB
 
   SF -->|API / Extract| PkgLoad1
   SRCSQL -->|Source reads| PkgLoad1
-  PS -->|Deploys (.ispac / .dtsx)| DTProj
+  PS1 -->|Deploys .ispac / .dtsx| DTProj
   DTProj --> CM1
   DTProj --> CM2
   DTProj --> CM3
@@ -91,6 +92,7 @@ flowchart TB
   Logs --> Rep
   Hist --> Rep
   Stg --> Rep
+
 ```
 
 ---
